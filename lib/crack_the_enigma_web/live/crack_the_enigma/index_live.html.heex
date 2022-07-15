@@ -1,0 +1,17 @@
+
+<%= if @generating_cyphertext do %>
+    Generating Cyphertext...
+<% else %>
+    <%= @plaintext %>
+
+    <%= @number_of_rotors %>
+
+    <button phx-click="add_rotor">Add A Rotor</button>
+    <button disabled={@number_of_rotors == 1} phx-click="remove_rotor">Remove A Rotor</button>
+
+    <form phx-hook="SubmitAttempt" id="attempt-form">
+        <input type="textarea" name="attempt" />
+
+        <button>Check My Answer</button>
+    </form>
+<% end %>
